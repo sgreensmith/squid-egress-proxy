@@ -1,3 +1,21 @@
+# custom settings
+
+acl clients src all
+
+# to use a fixed file: (although this is not updated dynamically)
+#acl permitted_dest url_regex '/whitelist_url.txt'
+
+# to use an external helper
+external_acl_type egress_acl_helper %DST /check_url.sh
+acl permitted_dest external egress_acl_helper
+
+always_direct allow all
+http_access allow clients permitted_dest
+http_access deny all
+
+
+# default settings below
+
 acl localnet src 10.0.0.0/8	# RFC1918 possible internal network
 acl localnet src 172.16.0.0/12	# RFC1918 possible internal network
 acl localnet src 192.168.0.0/16	# RFC1918 possible internal network
