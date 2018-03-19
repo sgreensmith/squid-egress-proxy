@@ -1,0 +1,6 @@
+squid-cache/
+squid-3.3.8*
+
+swap.stat
+egress.conf
+*.swp
