@@ -4,7 +4,7 @@ set -eu
 
 while read url
 do
-    echo $url
+#    echo $url
     if grep -Fxq $url url_whitelist.txt
     then
 	echo 'OK';
