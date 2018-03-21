@@ -6,7 +6,7 @@ acl clients src all
 #acl permitted_dest url_regex '/whitelist_url.txt'
 
 # to use an external helper
-external_acl_type egress_acl_helper %DST /check_url.sh
+external_acl_type egress_acl_helper ipv4 negative_ttl=60 %DST /check_url.sh
 acl permitted_dest external egress_acl_helper
 
 always_direct allow all

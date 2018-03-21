@@ -4,11 +4,10 @@ set -eu
 
 while read url
 do
-#    echo $url
-    if grep -Fxq $url url_whitelist.txt
+    if grep -Fxq $url '/url_whitelist.txt'
     then
-	echo 'OK';
+	echo "OK log=acl-ok-$url";
     else
-	echo 'ERR';
+	echo "ERR log=acl-error-$url";
     fi
 done
